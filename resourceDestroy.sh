@@ -1,1 +1,1 @@
-az group delete --name JenkinsGroup
+az group delete --name JenkinsGroup -y

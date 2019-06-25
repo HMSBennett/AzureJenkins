@@ -28,15 +28,15 @@ az network nsg rule create --resource-group JenkinsGroup --name SSH --destinatio
 
 echo -7-----------------------------------------------------------------------
 
-az network public-ip create --resource-group JenkinsGroup --name JenkinsIPHost --dns-name bazzatron3000 --allocation-method Static
+az network public-ip create --resource-group JenkinsGroup --name JenkinsIPHost --dns-name hostbazzatron3000 --allocation-method Static
 
 echo -8-----------------------------------------------------------------------
 
-az network public-ip create --resource-group JenkinsGroup --name JenkinsIPSlave --dns-name bazzatron3000 --allocation-method Static
+az network public-ip create --resource-group JenkinsGroup --name JenkinsIPSlave --dns-name slavebazzatron3000 --allocation-method Static
 
 echo -9-----------------------------------------------------------------------
 
-#az network public-ip create --resource-group JenkinsGroup --name JenkinsIPPython --dns-name bazzatron3000 --allocation-method Static
+az network public-ip create --resource-group JenkinsGroup --name JenkinsIPPython --dns-name pythonbazzatron3000 --allocation-method Static
 
 echo -10----------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ az network nic create --resource-group JenkinsGroup --name JenkinsNICSlave --vne
 
 echo -12----------------------------------------------------------------------
 
-#az network nic create --resource-group JenkinsGroup --name JenkinsNICPython --vnet-name JenkinsNetwork --subnet JenkinsSubnet --network-security-group JenkinsNSG --public-ip-address JenkinsIPPython
+az network nic create --resource-group JenkinsGroup --name JenkinsNICPython --vnet-name JenkinsNetwork --subnet JenkinsSubnet --network-security-group JenkinsNSG --public-ip-address JenkinsIPPython
 
 echo -13----------------------------------------------------------------------
 
@@ -60,4 +60,18 @@ az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image UbuntuL
 
 echo -15----------------------------------------------------------------------
 
-#az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1ls
+az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1ls
+
+echo -16----------------------------------------------------------------------
+
+
+
+echo -17----------------------------------------------------------------------
+
+
+
+echo -18----------------------------------------------------------------------
+
+
+
+echo -19----------------------------------------------------------------------
