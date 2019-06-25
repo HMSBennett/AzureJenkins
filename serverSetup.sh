@@ -2,7 +2,7 @@ az group create --resource-group JenkinsGroup
 
 az network vnet create --resource-group JenkinsGroup --name JenkinsNetwork --address-prefixes 10.0.0.0/16 --subnet-name JenkinsSubnet --subnet-prefix 10.0.0.0/24
 
-az network vnet subnet create --resource-group JenkinsGroup --name JenkinsSubnet --address-prefixes 10.0.0.0/24
+az network vnet subnet create --resource-group JenkinsGroup --vnet-name JenkinsNetwork --name JenkinsSubnet --address-prefixes 10.0.0.0/24
 
 az network nsg create --resource-group JenkinsGroup --name JenkinsNSG
 
@@ -14,8 +14,8 @@ az network public-ip create --resource-group JenkinsGroup --name JenkinsIP --dns
 
 az network nic create --resource-group JenkinsGroup --name JenkinsNIC --vnet-name JenkinsNetwork --subnet JenkinsSubnet --network-security-group JenkinsNSG
 
-az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image Ubuntu --nics JenkinsNIC
+az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image CentOS --nics JenkinsNIC
 
-az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image Ubuntu --nics JenkinsNIC
+az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image CentOS --nics JenkinsNIC
 
-az vm create --resource-group JenkinsGroup --name PythonServerVM --image Ubuntu --nics JenkinsNIC
+az vm create --resource-group JenkinsGroup --name PythonServerVM --image CentOS --nics JenkinsNIC
