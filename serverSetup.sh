@@ -4,9 +4,9 @@ az configure --defaults group=JenkinsGroup
 
 az group create --resource-group JenkinsGroup --location uksouth
 
-az network vnet create --resource-group JenkinsGroup --name JenkinsNetwork --address-prefixes 10.0.0.0/16 --subnet-name JenkinsSubnet --subnet-prefix 10.0.0.0/24
+#az network vnet create --resource-group JenkinsGroup --name JenkinsNetwork --address-prefixes 10.0.0.0/16 --subnet-name JenkinsSubnet --subnet-prefix 10.0.0.0/24
 
-az network vnet subnet create --resource-group JenkinsGroup --vnet-name JenkinsNetwork --name JenkinsSubnet --address-prefixes 10.0.0.0/24
+az network vnet subnet create --resource-group JenkinsGroup --vnet-name JenkinsNetwork --name JenkinsSubnet --address-prefixes 10.0.0.0/16 --subnet-name JenkinsSubnet --subnet-prefixes 10.0.0.0/24
 
 az network nsg create --resource-group JenkinsGroup --name JenkinsNSG
 
