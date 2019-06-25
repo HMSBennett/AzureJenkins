@@ -8,7 +8,7 @@ az network nsg create --resource-group JenkinsGroup --name JenkinsNSG
 
 az network nsg rule create --resource-group JenkinsGroup --name HTTP --priority 500 --nsg-name JenkinsNSG
 
-az network nsg rule create --name SSH --destination-port-ranges 22 --nsg-name JenkinsNSG --priority 400
+az network nsg rule create --resource-group JenkinsGroup --name SSH --destination-port-ranges 22 --nsg-name JenkinsNSG --priority 400
 
 az network public-ip create --resource-group JenkinsGroup --name JenkinsIP --dns-name bazzatron3000 --allocation-method Static
 
