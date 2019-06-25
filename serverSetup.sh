@@ -6,7 +6,7 @@ az network vnet subnet create --resource-group JenkinsGroup --name JenkinsSubnet
 
 az network nsg create --resource-group JenkinsGroup --name JenkinsNSG
 
-az network nsg rule create --resource-group JenkinsGroup --name HTTP --priority 500 --nsg-name JenkinsNSG
+#az network nsg rule create --resource-group JenkinsGroup --name HTTP --priority 500 --nsg-name JenkinsNSG
 
 az network nsg rule create --resource-group JenkinsGroup --name SSH --destination-port-ranges 22 --nsg-name JenkinsNSG --priority 400
 
