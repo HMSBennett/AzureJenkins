@@ -54,15 +54,15 @@ az network nic create --resource-group JenkinsGroup --name JenkinsNICPython --vn
 
 echo -13----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image UbuntuLTS --nics JenkinsNICHost --size Standard_B1ls --generate-ssh-keys
+az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image UbuntuLTS --nics JenkinsNICHost --size Standard_B1MS --generate-ssh-keys
 
 echo -14----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image UbuntuLTS --nics JenkinsNICSlave --size Standard_B1ls --generate-ssh-keys
+az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image UbuntuLTS --nics JenkinsNICSlave --size Standard_B1MS --generate-ssh-keys
 
 echo -15----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1ls --generate-ssh-keys
+az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1MS --generate-ssh-keys
 
 echo -16----------------------------------------------------------------------
 
