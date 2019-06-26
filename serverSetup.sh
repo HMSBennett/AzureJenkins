@@ -10,11 +10,11 @@ az group create --resource-group JenkinsGroup --location uksouth
 
 echo -3-----------------------------------------------------------------------
 
-az network vnet create --resource-group JenkinsGroup --name JenkinsNetwork --address-prefixes 10.0.0.0/16 --subnet-name JenkinsSubnet --subnet-prefix 10.0.0.0/24
+az network vnet create --resource-group JenkinsGroup --name JenkinsNetwork --address-prefixes 10.0.10.0/16
 
 echo -4-----------------------------------------------------------------------
 
-az network vnet subnet create --resource-group JenkinsGroup --vnet-name JenkinsNetwork --name JenkinsSubnet --address-prefixes 10.0.0.0/24
+az network vnet subnet create --resource-group JenkinsGroup --vnet-name JenkinsNetwork --name JenkinsSubnet --address-prefixes 10.0.10.0/24
 
 echo -5-----------------------------------------------------------------------
 
@@ -52,15 +52,15 @@ az network nic create --resource-group JenkinsGroup --name JenkinsNICPython --vn
 
 echo -13----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image UbuntuLTS --nics JenkinsNICHost --size Standard_B1ls
+az vm create --resource-group JenkinsGroup --name JenkinsHostVM --image UbuntuLTS --nics JenkinsNICHost --size Standard_B1ls --generate-ssh-keys
 
 echo -14----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image UbuntuLTS --nics JenkinsNICSlave --size Standard_B1ls
+az vm create --resource-group JenkinsGroup --name JenkinsSlaveVM --image UbuntuLTS --nics JenkinsNICSlave --size Standard_B1ls --generate-ssh-keys
 
 echo -15----------------------------------------------------------------------
 
-az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1ls
+az vm create --resource-group JenkinsGroup --name PythonServerVM --image UbuntuLTS --nics JenkinsNICPython --size Standard_B1ls --generate-ssh-keys
 
 echo -16----------------------------------------------------------------------
 
