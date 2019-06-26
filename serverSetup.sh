@@ -22,9 +22,11 @@ az network nsg create --resource-group JenkinsGroup --name JenkinsNSG
 
 echo -6-----------------------------------------------------------------------
 
-#az network nsg rule create --resource-group JenkinsGroup --name HTTP --priority 500 --nsg-name JenkinsNSG
+az network nsg rule create --resource-group JenkinsGroup --name HTTP --destination-port-ranges 8080 --nsg-name JenkinsNSG --priority 200
 
-az network nsg rule create --resource-group JenkinsGroup --name SSH --destination-port-ranges 22 --nsg-name JenkinsNSG --priority 400
+az network nsg rule create --resource-group JenkinsGroup --name SSH --destination-port-ranges 22 --nsg-name JenkinsNSG --priority 100
+
+az network nsg rule create --resource-group JenkinsGroup --name Python --destination-port-ranges 8088 --nsg-name JenkinsNSG --priority 150
 
 echo -7-----------------------------------------------------------------------
 
